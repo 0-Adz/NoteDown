@@ -19,7 +19,6 @@ const NoteState = (props) => {
     });
 
    const json = await response.json()
-   console.log(json)
    setNotes(json)
   };
 
@@ -35,18 +34,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description, tag}),
     });
-    const json = response.json();
-    console.log(json);
-
-    const note = {
-      _id: "64217ce83a9e7488f3ec45c4",
-      user: "64215c640834815c88bdc7c5",
-      title: title,
-      description: description,
-      tag: tag,
-      date: "2023-03-27T11:24:24.590Z",
-      __v: 0,
-    };
+    const note = await response.json();
     setNotes(notes.concat(note));
   };
 
@@ -61,8 +49,8 @@ const NoteState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyMTVjNjQwODM0ODE1Yzg4YmRjN2M1In0sImlhdCI6MTY3OTkxMjI1Nn0.HSDfULkdYjYhWctHbUlAUjaIM4v_rgeilbmCqWH17cM",
       }
     });
-    const json = response.json();
-    console.log(json);
+    // eslint-disable-next-line
+    const json = await response.json();
 
     // Deleting the note by not adding that note in the setNote
     const newNotes = notes.filter((note) => {
@@ -82,8 +70,8 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description, tag}),
     });
-    const json = response.json();
-    console.log(json)
+    // eslint-disable-next-line
+    const json = await response.json();
 
     let newNotes = JSON.parse(JSON.stringify(notes))
     // For finding the match of id and updating it.
