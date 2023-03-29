@@ -33,8 +33,9 @@ const onChange = (e) =>{
 }
   return (
     <div className="container">
+      <h2>Create your account to continue! </h2>
     <form onSubmit={handleSubmit}>
-      <div className="mb-3">
+      <div className="mb-3 my-3">
         <label htmlFor="name" className="form-label"> User name</label>
         <input type="text" className="form-control" onChange={onChange} value = {credentials.name} name="name" id="name"/>
       </div>

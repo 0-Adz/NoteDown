@@ -33,8 +33,9 @@ const Login = (props) => {
     }
   return (
     <div className="container">
+      <h2>Login to continue to NoteDown! </h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="mb-3 my-3">
           <label htmlFor="email" className="form-label"> Email address</label>
           <input type="email" className="form-control" onChange={onChange} value = {credentials.email} name="email" id="email" aria-describedby="emailHelp"/>
           <div id="emailHelp" className="form-text"> We'll never share your email with anyone else.</div>

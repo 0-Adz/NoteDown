@@ -4,9 +4,10 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 const Navbar = () => {
   let location = useLocation();
   let navigate = useNavigate();
-  const handleLogout = () =>{
-    localStorage.removeItem('token');
-    navigate("/")
+  const handleLogout = async () =>{
+    await localStorage.removeItem('token');
+    navigate("/login")
+    
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
