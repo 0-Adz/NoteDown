@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import noteContext from "../Context/notes/noteContext";
 import AddNote from "./AddNote";
 import NoteItem from "./NoteItem";
+import { useNavigate } from "react-router-dom"
 
-function Notes() {
+function Notes(props) {
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
+  let navigate = useNavigate();
   const [note, setNote] = useState({
     id: "",
     etitle: "",
@@ -13,9 +15,13 @@ function Notes() {
     etag: "",
   });
   useEffect(() => {
-    return () => {
+    if (localStorage.getItem('token')) {
       getNotes();
-    };
+    }
+    else{
+      navigate("/login")
+    }
+   
     // eslint-disable-next-line
   }, []);
   const ref = useRef(null);
@@ -33,6 +39,7 @@ function Notes() {
   const handleClick = (e) => {
     editNote(note.id, note.etitle, note.edescription, note.etag);
     refClose.current.click();
+    props.showAlert("Updated successfully","success")
   };
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
@@ -40,7 +47,7 @@ function Notes() {
 
   return (
     <div>
-      <AddNote />
+      <AddNote showAlert={props.showAlert} />
       <button
         ref={ref}
         type="button"
@@ -91,7 +98,7 @@ function Notes() {
                   <label htmlFor="description" className="form-label">
                     Description
                   </label>
-                  <input
+                  <textarea
                     type="text"
                     className="form-control"
                     id="edescription"
@@ -142,7 +149,7 @@ function Notes() {
         </div>
           {notes.map((note) => {
             return (
-              <NoteItem key={note._id} updateNote={updateNote} note={note} />
+              <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
             );
           })}
       </div>
