@@ -32,29 +32,35 @@ const onChange = (e) =>{
   setCredentials({...credentials, [e.target.name]: e.target.value})
 }
   return (
-    <div className="container">
-      <h2>Create your account to continue! </h2>
+    <section className="">
+    <div className="px-4 px-md-5 text-center text-lg-start">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div className="card text-white" style={{backgroundColor: 'rgb(68 23 116)', borderRadius: '1.5rem', width:'55vh', height:'80vh'}}>
+          <div className="card-body p-5 text-center">
+      <h2 className="fw-bold mb-2 text-uppercase">SignUp</h2>
+      <p className="text-white-50 mb-5">Please enter your credentials!</p>
     <form onSubmit={handleSubmit}>
       <div className="mb-3 my-3">
-        <label htmlFor="name" className="form-label"> User name</label>
-        <input type="text" className="form-control" onChange={onChange} value = {credentials.name} name="name" id="name"/>
+        <input type="text" className="form-control" onChange={onChange} placeholder="User name" value = {credentials.name} name="name" id="name"/>
       </div>
       <div className="mb-3">
-        <label htmlFor="email" className="form-label"> Email address</label>
-        <input type="email" className="form-control" onChange={onChange} value = {credentials.email} name="email" id="email" aria-describedby="emailHelp"/>
-        <div id="emailHelp" className="form-text"> We'll never share your email with anyone else.</div>
+        <input type="email" className="form-control" onChange={onChange} placeholder="Email address" value = {credentials.email} name="email" id="email" aria-describedby="emailHelp"/>
       </div>
       <div className="mb-3">
-        <label htmlFor="password" className="form-label"> Password</label>
-        <input type="password" className="form-control" onChange={onChange}  name="password" id="password" minLength={5} required/>
+        <input type="password" className="form-control" onChange={onChange} placeholder="Password" name="password" id="password" minLength={5} required/>
       </div>
-      <div className="mb-3">
-        <label htmlFor="confirmpassword" className="form-label">Confirm your Password</label>
-        <input type="password" className="form-control" onChange={onChange}  name="confirmpassword" id="confirmpassword" minLength={5} required/>
+      <div className="mb-5 my-3">
+        <input type="password" className="form-control" onChange={onChange} placeholder="Confirm your Password" name="confirmpassword" id="confirmpassword" minLength={5} required/>
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button className="btn btn-outline-light btn-lg px-5 my-5" type="submit">SignUp</button>
     </form>
-  </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
   );
 };
 

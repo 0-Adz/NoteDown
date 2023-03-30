@@ -10,7 +10,7 @@ const Navbar = () => {
     
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'rgb(68 23 116)'}}>
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">NoteDown</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +26,9 @@ const Navbar = () => {
         </li>
       </ul>
       {!(localStorage.getItem('token')) ? <form className="d-flex">
-      <Link className="btn btn-outline-success mx-2" to="/login" role="button">Login</Link>
-      <Link className="btn btn-outline-primary mx-2" to="/signup" role="button">SignUp</Link>
-      </form> : <Link className="btn btn-outline-success mx-2" onClick={handleLogout} role="button">Logout</Link>}
+      <Link className="btn btn-outline-light mx-2" to="/login" role="button">Login</Link>
+      <Link className="btn btn-outline-info mx-2" to="/signup" role="button">SignUp</Link>
+      </form> : <Link className="btn btn-outline-info mx-2" onClick={handleLogout} role="button">Logout</Link>}
     </div>
   </div>
 </nav>

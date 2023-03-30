@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email:"", password:""})
     let navigate = useNavigate();
@@ -32,21 +32,32 @@ const Login = (props) => {
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
   return (
-    <div className="container">
-      <h2>Login to continue to NoteDown! </h2>
+    <section className="">
+    <div className="px-5 px-md-5 text-center text-lg-start">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div className="card text-white" style={{backgroundColor: 'rgb(68 23 116)', borderRadius: '1.5rem', width:'55vh', height:'80vh'}}>
+          <div className="card-body p-5 text-center">
+      <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+      <p className="text-white-50 mb-5">Please enter your email and password!</p>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3 my-3">
-          <label htmlFor="email" className="form-label"> Email address</label>
-          <input type="email" className="form-control" onChange={onChange} value = {credentials.email} name="email" id="email" aria-describedby="emailHelp"/>
-          <div id="emailHelp" className="form-text"> We'll never share your email with anyone else.</div>
-        </div>
+      <div className="form-outline form-white mb-4">
+          <input type="email" className="form-control form-label-lg" onChange={onChange} placeholder="Email address" value = {credentials.email} name="email" id="email"/>
+      </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label"> Password</label>
-          <input type="password" className="form-control" onChange={onChange} value = {credentials.password} name="password" id="password"/>
+          <input type="password" className="form-control" onChange={onChange} placeholder="Password" value = {credentials.password} name="password" id="password"/>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button className="btn btn-outline-light btn-lg px-5 my-5" type="submit">Login</button>
+        <div>
+              <p className="mb-5">Don't have an account? <Link to="/signup" className="text-white-50 fw-bold">Sign Up</Link></p>
+        </div>
       </form>
     </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
   );
 };
 

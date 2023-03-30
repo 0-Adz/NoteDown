@@ -25,6 +25,7 @@ function App() {
     }, 1500);
   };
   return (
+    <div>
     <NoteState>
     <Router>
         <Navbar/>
@@ -39,6 +40,7 @@ function App() {
         </div>
     </Router>
     </NoteState>
+    </div>
   );
 }
 
